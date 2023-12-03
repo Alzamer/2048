@@ -1,9 +1,28 @@
 import styles from './styles.module.css'
+import Cell from '../Cell'
 
 function Grid() {
   return (
     <div className={styles.container}>
-      <p>GRID</p>
+      <Cell/>
+      <Cell/>
+      <Cell/>
+      <Cell/>
+
+      <Cell/>
+      <Cell/>
+      <Cell/>
+      <Cell/>
+      
+      <Cell/>
+      <Cell/>
+      <Cell/>
+      <Cell/>
+
+      <Cell/>
+      <Cell/>
+      <Cell/>
+      <Cell/>
     </div>
   )
 }
