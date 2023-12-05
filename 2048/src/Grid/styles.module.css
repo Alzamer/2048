@@ -7,3 +7,10 @@
     border: 8px solid rgb(194, 185, 185);
     border-radius: 5px;
 }
+
+@media (max-width: 670px) {
+    .container{
+        width: 400px;
+        height: 400px;
+    }
+}
