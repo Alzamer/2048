@@ -5,7 +5,7 @@ function Description() {
     <>
       <div className={styles.container}>
       <p className={styles.text}>
-        Hello! This is a clone of a popular 2048 game, which I made with TypeScript and React. You can view the source code <a href="https://github.com/Alzamer/2048" target="_blank">there</a>.
+        Hello! This is a clone of a popular 2048 game, that I made using TypeScript and React. You can see the source code <a className={styles.link} href="https://github.com/Alzamer/2048" target="_blank">there</a>.
       </p>
       </div>
       <p className={styles.text}>Score: </p>

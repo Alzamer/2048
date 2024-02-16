@@ -12,3 +12,8 @@ button{
     width: 300px;
     height: 75px;
 }
+
+.link{
+    text-decoration: none;
+    color: beige;
+}
