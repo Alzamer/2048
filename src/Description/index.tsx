@@ -9,7 +9,7 @@ function Description() {
       </p>
       </div>
       <p className={styles.text}>Score: </p>
-      <button>New Game</button>
+      <div className={styles.button}>New Game</div>
     </>
 )}
 

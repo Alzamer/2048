@@ -8,9 +8,21 @@
     width: 90%;
 }
 
-button{
-    width: 300px;
-    height: 75px;
+.button{
+    width: 100px;
+    height: 30px;
+    font-weight: 300;
+    font-size: 20px;
+    color: #fff;
+    background: linear-gradient(90deg, #0066CC 0%, #c500cc 100%);
+    padding: 10px 30px;
+    border: solid #0066cc 2px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .link{
