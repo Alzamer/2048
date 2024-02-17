@@ -1,9 +1,11 @@
 import styles from './style.module.css'
 
-function Tile() {
+function Tile({ children } : { children : number}) {
   return (
     <div className={styles.container}>
-        X
+      {
+        children
+      }
     </div>
 )}
 

@@ -31,7 +31,13 @@ function Grid() {
   return (
     <div className={styles.container}>
       {
-        gridState.map(x => x.map(y => y == 0 ? <Cell></Cell> : <Cell><Tile/></Cell>))
+        gridState.map(_ => _.map(value => value === 0 ? 
+          <Cell></Cell> :
+          <Cell>
+            <Tile>
+              {value}
+            </Tile>
+          </Cell>))
       }
     </div>
   )
