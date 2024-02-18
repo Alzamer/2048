@@ -1,25 +1,18 @@
 import styles from './style.module.css'
 import Cell from '../Cell'
 import Tile from '../Tile'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
+import getRandomPoint from '../util/getRandomPoint'
 
-function Grid() {
-  const [gridState, setGridState] = useState<Array<Array<number>>>([
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0]
-  ]);
-
+function Grid({ grid, setGridState } : { grid: any, setGridState: any}) {
   useEffect(() => {
-    const temp = JSON.parse(JSON.stringify(gridState));
+    const temp = JSON.parse(JSON.stringify(grid));
 
-    const first = {x: Math.floor(Math.random() * 4), y: Math.floor(Math.random() * 4)}
-    const second = {x: 0, y: 0};
+    const first = getRandomPoint()
+    let second = {x: 0, y: 0};
     
     do {
-      second.x = Math.floor(Math.random() * 4);
-      second.y = Math.floor(Math.random() * 4);
+      second = {x: Math.floor(Math.random() * 4), y: Math.floor(Math.random() * 4)}
     } while (second.x === first.x && second.y === first.y);
 
     temp[first.x][first.y] = 2;
@@ -31,13 +24,13 @@ function Grid() {
   return (
     <div className={styles.container}>
       {
-        gridState.map(_ => _.map(value => value === 0 ? 
+        grid.map(_ => _.map((value : number) => value === 0 ? 
           <Cell></Cell> :
           <Cell>
-            <Tile>
-              {value}
-            </Tile>
-          </Cell>))
+          <Tile>
+            {value}
+          </Tile>
+        </Cell>))
       }
     </div>
   )

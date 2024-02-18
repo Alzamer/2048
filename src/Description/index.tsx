@@ -1,6 +1,28 @@
 import styles from './style.module.css'
+import getRandomPoint from '../util/getRandomPoint'
 
-function Description() {
+function Description({ setGridState } : { setGridState: any}) {
+  const handleClick = () => {
+    const temp = JSON.parse(JSON.stringify([
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0]
+    ]));
+
+    const first = getRandomPoint()
+    let second = {x: 0, y: 0};
+    
+    do {
+      second = {x: Math.floor(Math.random() * 4), y: Math.floor(Math.random() * 4)}
+    } while (second.x === first.x && second.y === first.y);
+
+    temp[first.x][first.y] = 2;
+    temp[second.x][second.y] = 2;
+
+    setGridState(temp);
+  }
+
   return (
     <>
       <div className={styles.container}>
@@ -9,7 +31,7 @@ function Description() {
       </p>
       </div>
       <p className={styles.text}>Score: </p>
-      <div className={styles.button}>New Game</div>
+      <div className={styles.button} onClick={handleClick}>New Game</div>
     </>
 )}
 
