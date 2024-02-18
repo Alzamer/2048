@@ -4,7 +4,7 @@ import Tile from '../Tile'
 import { useEffect } from 'react'
 import getRandomPoint from '../util/getRandomPoint'
 
-function Grid({ grid, setGridState } : { grid: any, setGridState: any}) {
+function Grid({ grid, setGridState } : { grid: Array<Array<number>>, setGridState: React.Dispatch<React.SetStateAction<Array<Array<number>>>>}) {
   useEffect(() => {
     const temp = JSON.parse(JSON.stringify(grid));
 

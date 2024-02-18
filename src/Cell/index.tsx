@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
 
-function Cell({ children } : { children?: any}) {
+function Cell({ children } : { children?: React.ReactElement}) {
   return (
     <div className={styles.container}>
       {

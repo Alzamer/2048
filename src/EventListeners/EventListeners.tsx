@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
-function EventListeners({ children } : { children: any}) {
+function EventListeners({ children } : { children: Array<React.ReactElement>}) {
   useEffect(() => {
-    const handleKeyPress = (event: any) => {
+    const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'ArrowLeft' || event.key === 'a') {
         console.log('Kliknięto strzałkę w lewo lub klawisz a');
       } else if (event.key === 'ArrowRight' || event.key === 'd') {

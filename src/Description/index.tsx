@@ -1,7 +1,7 @@
 import styles from './style.module.css'
 import getRandomPoint from '../util/getRandomPoint'
 
-function Description({ setGridState } : { setGridState: any}) {
+function Description({ setGridState } : { setGridState: React.Dispatch<React.SetStateAction<Array<Array<number>>>>}) {
   const handleClick = () => {
     const temp = JSON.parse(JSON.stringify([
       [0, 0, 0, 0],
@@ -14,7 +14,7 @@ function Description({ setGridState } : { setGridState: any}) {
     let second = {x: 0, y: 0};
     
     do {
-      second = {x: Math.floor(Math.random() * 4), y: Math.floor(Math.random() * 4)}
+      second = getRandomPoint()
     } while (second.x === first.x && second.y === first.y);
 
     temp[first.x][first.y] = 2;
