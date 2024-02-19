@@ -1,7 +1,11 @@
 import styles from './style.module.css'
 import getRandomPoint from '../util/getRandomPoint'
+import StateContext from '../util/stateContext'
+import { useContext } from 'react';
 
-function Description({ setGridState } : { setGridState: React.Dispatch<React.SetStateAction<Array<Array<number>>>>}) {
+function Description() {
+  const state = useContext(StateContext);
+
   const handleClick = () => {
     const temp = JSON.parse(JSON.stringify([
       [0, 0, 0, 0],
@@ -20,7 +24,7 @@ function Description({ setGridState } : { setGridState: React.Dispatch<React.Set
     temp[first.x][first.y] = 2;
     temp[second.x][second.y] = 2;
 
-    setGridState(temp);
+    state?.setGridState(temp);
   }
 
   return (

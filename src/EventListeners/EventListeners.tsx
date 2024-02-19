@@ -1,10 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import moveLeft from "../util/moveLeft";
+import StateContext from "../util/stateContext";
 
-function EventListeners({ children } : { children: Array<React.ReactElement>}) {
+function EventListeners({ children } : { children: Array<React.ReactElement> }) {
+  const state = useContext(StateContext);
+
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'ArrowLeft' || event.key === 'a') {
-        console.log('Kliknięto strzałkę w lewo lub klawisz a');
+        moveLeft(state?.gridState!!, state?.setGridState!!);
       } else if (event.key === 'ArrowRight' || event.key === 'd') {
         console.log('Kliknięto strzałkę w prawo lub klawisz d');
       }  else if (event.key === 'ArrowUp' || event.key === 'w') {
