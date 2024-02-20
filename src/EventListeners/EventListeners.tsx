@@ -1,6 +1,8 @@
 import { useEffect, useContext } from "react";
 import moveLeft from "../util/moveLeft";
 import moveRight from "../util/moveRight";
+import moveDown from "../util/moveDown";
+import moveUp from "../util/moveUp";
 import StateContext from "../util/stateContext";
 
 function EventListeners({ children } : { children: Array<React.ReactElement> }) {
@@ -13,9 +15,9 @@ function EventListeners({ children } : { children: Array<React.ReactElement> }) 
       } else if (event.key === 'ArrowRight' || event.key === 'd') {
         moveRight(state?.gridState!, state?.setGridState!);
       }  else if (event.key === 'ArrowUp' || event.key === 'w') {
-        console.log('Kliknięto strzałkę w górę lub klawisz w');
+        moveUp(state?.gridState!, state?.setGridState!);
       }  else if (event.key === 'ArrowDown' || event.key === 's') {
-        console.log('Kliknięto strzałkę w dół lub klawisz s');
+        moveDown(state?.gridState!, state?.setGridState!);
       }
     };
 
