@@ -1,3 +1,5 @@
+import addRandomPoint from "./addRandomPoint";
+
 export default function moveRight(grid: Array<Array<number>>, setGridState: React.Dispatch<React.SetStateAction<Array<Array<number>>>>){
     for(let i = 0; i < 4; i++){
       for(let j = 0; j < 3; j++){
@@ -13,5 +15,7 @@ export default function moveRight(grid: Array<Array<number>>, setGridState: Reac
         }
       }
     }
+
+    addRandomPoint(grid);
     setGridState([...grid]);
   }

@@ -14,9 +14,9 @@ function EventListeners({ children } : { children: Array<React.ReactElement> }) 
         moveLeft(state?.gridState!, state?.setGridState!);
       } else if (event.key === 'ArrowRight' || event.key === 'd') {
         moveRight(state?.gridState!, state?.setGridState!);
-      }  else if (event.key === 'ArrowUp' || event.key === 'w') {
+      } else if (event.key === 'ArrowUp' || event.key === 'w') {
         moveUp(state?.gridState!, state?.setGridState!);
-      }  else if (event.key === 'ArrowDown' || event.key === 's') {
+      } else if (event.key === 'ArrowDown' || event.key === 's') {
         moveDown(state?.gridState!, state?.setGridState!);
       }
     };
