@@ -1,29 +1,20 @@
 import styles from './style.module.css'
-import getRandomPoint from '../util/getRandomPoint'
 import StateContext from '../util/stateContext'
+import addRandomPoint from '../util/addRandomPoint';
 import { useContext } from 'react';
 
 function Description() {
   const state = useContext(StateContext);
 
   const handleClick = () => {
-    const first = getRandomPoint()
-    let second = {x: 0, y: 0};
-    
-    do {
-      second = getRandomPoint()
-    } while (second.x === first.x && second.y === first.y);
-
     const temp = [
       [0, 0, 0, 0],
       [0, 0, 0, 0],
       [0, 0, 0, 0],
-      [0, 0, 0, 0]
-    ]
-
-    temp[first.x][first.y] = 2;
-    temp[second.x][second.y] = 2;
-
+      [0, 0, 0, 0],
+    ];
+    addRandomPoint(temp);
+    addRandomPoint(temp);
     state?.setGridState(temp);
   }
 

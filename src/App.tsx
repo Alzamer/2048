@@ -2,9 +2,9 @@ import Grid from './Grid'
 import Description from './Description'
 import './App.css'
 import { useState, useEffect } from 'react'
-import getRandomPoint from './util/getRandomPoint'
 import EventListeners from './EventListeners/EventListeners'
 import StateContext from './util/stateContext'
+import addRandomPoint from './util/addRandomPoint'
 
 function App() {
   const [gridState, setGridState] = useState<Array<Array<number>>>([
@@ -15,15 +15,8 @@ function App() {
   ]);
 
   useEffect(() => {
-    const first = getRandomPoint()
-    let second = {x: 0, y: 0};
-    
-    do {
-      second = {x: Math.floor(Math.random() * 4), y: Math.floor(Math.random() * 4)}
-    } while (second.x === first.x && second.y === first.y);
-
-    gridState[first.x][first.y] = 2;
-    gridState[second.x][second.y] = 2;
+    addRandomPoint(gridState);
+    addRandomPoint(gridState);
 
     setGridState([...gridState]);
   }, [])
