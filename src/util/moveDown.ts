@@ -1,25 +1,26 @@
 import addRandomPoint from "./addRandomPoint";
 
-export default function moveDown(grid: Array<Array<number>>, setGridState: React.Dispatch<React.SetStateAction<Array<Array<number>>>>) {
+export default function useMoveDown(state : any) {
   let changed = false;
 
   for (let i = 0; i < 4; i++) {
     for (let j = 0; j < 3; j++) {
-      if (grid[j][i] === 0)
+      if (state.gridState[j][i] === 0)
         continue;
-      else if (grid[j + 1][i] === 0) {
-        grid[j + 1][i] = grid[j][i];
-        grid[j][i] = 0;
+      else if (state.gridState[j + 1][i] === 0) {
+        state.gridState[j + 1][i] = state.gridState[j][i];
+        state.gridState[j][i] = 0;
         changed = true;
       }
-      else if (grid[j][i] == grid[j + 1][i]) {
-        grid[j + 1][i] *= 2;
-        grid[j][i] = 0;
+      else if (state.gridState[j][i] == state.gridState[j + 1][i]) {
+        state.setScore(state.score + 2 * state.gridState[j][i]);
+        state.gridState[j + 1][i] *= 2;
+        state.gridState[j][i] = 0;
       }
     }
   }
 
   if(changed)
-    addRandomPoint(grid);
-  setGridState([...grid]);
+    addRandomPoint(state.gridState);
+  state.setGridState([...state.gridState]);
 }

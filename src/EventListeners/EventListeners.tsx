@@ -1,23 +1,25 @@
 import { useEffect, useContext } from "react";
-import moveLeft from "../util/moveLeft";
-import moveRight from "../util/moveRight";
-import moveDown from "../util/moveDown";
-import moveUp from "../util/moveUp";
+import useMoveLeft from "../util/moveLeft";
+import useMoveRight from "../util/moveRight";
+import useMoveDown from "../util/moveDown";
+import useMoveUp from "../util/moveUp";
 import StateContext from "../util/stateContext";
 
 function EventListeners({ children } : { children: Array<React.ReactElement> }) {
   const state = useContext(StateContext);
 
   useEffect(() => {
+    console.log(123);
+
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'ArrowLeft' || event.key === 'a') {
-        moveLeft(state?.gridState!, state?.setGridState!);
+        useMoveLeft(state);
       } else if (event.key === 'ArrowRight' || event.key === 'd') {
-        moveRight(state?.gridState!, state?.setGridState!);
+        useMoveRight(state);
       } else if (event.key === 'ArrowUp' || event.key === 'w') {
-        moveUp(state?.gridState!, state?.setGridState!);
+        useMoveUp(state);
       } else if (event.key === 'ArrowDown' || event.key === 's') {
-        moveDown(state?.gridState!, state?.setGridState!);
+        useMoveDown(state);
       }
     };
 
