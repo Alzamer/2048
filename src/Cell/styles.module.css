@@ -1,19 +1,16 @@
 .container{
     width: 25%;
     height: 25%;
-    background: rgb(241, 236, 202);
+    background: rgb(170, 170, 170);
     box-sizing: border-box;
-}
-
-.container{
-    border-right: 8px solid rgb(194, 185, 185);
-    border-bottom: 8px solid rgb(194, 185, 185);
+    border-right: 12px solid rgb(194, 185, 185);
+    border-bottom: 12px solid rgb(194, 185, 185);
     border-radius: 2px;
 }
 
 .container:nth-child(4n+4){
     border-right: 0px;
-    border-bottom: 8px solid rgb(194, 185, 185);
+    border-bottom: 12px solid rgb(194, 185, 185);
 }
 
 .container:nth-child(n+13){
