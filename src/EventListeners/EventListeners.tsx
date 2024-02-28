@@ -9,8 +9,6 @@ function EventListeners({ children } : { children: Array<React.ReactElement> }) 
   const state = useContext(StateContext);
 
   useEffect(() => {
-    console.log(123);
-
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'ArrowLeft' || event.key === 'a') {
         useMoveLeft(state);
@@ -21,6 +19,8 @@ function EventListeners({ children } : { children: Array<React.ReactElement> }) 
       } else if (event.key === 'ArrowDown' || event.key === 's') {
         useMoveDown(state);
       }
+
+      state?.setGridState([...state?.gridState]);
     };
 
     window.addEventListener('keydown', handleKeyPress);

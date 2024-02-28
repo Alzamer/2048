@@ -10,7 +10,7 @@ function Grid() {
   return (
     <div className={styles.container}>
       {
-        state?.gridState.map(_ => _.map((value : number, i: number) => value === 0 ? 
+        state?.gridState.map(row => row.map((value : number, i: number) => value === 0 ? 
           <Cell key={i}></Cell> :
           <Cell key={i}>
           <Tile>

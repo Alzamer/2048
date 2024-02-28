@@ -13,15 +13,15 @@ const colors = {
   '2048': '#EDC22E',
 }
 
-type typ = keyof typeof colors;
-
-function Tile({ children } : { children : typ}) {
-
+function Tile({ children } : { children : any }) {
+  
   return (
     <div className={styles.container} style={{ background: colors[`${children}`] }}>
-      {
-        children
-      }
+      <b>
+        {
+          children
+        }
+      </b>
     </div>
 )}
 

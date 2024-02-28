@@ -2,20 +2,16 @@ import addRandomPoint from "./addRandomPoint";
 
 export default function useMoveDown(state : any) {
   let changed = false;
-
   for (let i = 0; i < 4; i++) {
-    for (let j = 0; j < 3; j++) {
-      if (state.gridState[j][i] === 0)
+    for (let j = 2; j >= 0; j--) {
+      if(state.gridState[j][i] === 0)
         continue;
-      else if (state.gridState[j + 1][i] === 0) {
-        state.gridState[j + 1][i] = state.gridState[j][i];
-        state.gridState[j][i] = 0;
+      let x = j;
+      while(x < 3 && state.gridState[x + 1][i] === 0){
+        state.gridState[x + 1][i] = state.gridState[x][i];
+        state.gridState[x][i] = 0;
         changed = true;
-      }
-      else if (state.gridState[j][i] == state.gridState[j + 1][i]) {
-        state.setScore(state.score + 2 * state.gridState[j][i]);
-        state.gridState[j + 1][i] *= 2;
-        state.gridState[j][i] = 0;
+        x++;
       }
     }
   }
