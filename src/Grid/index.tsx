@@ -18,6 +18,9 @@ function Grid() {
           </Tile>
         </Cell>))
       }
+      <div className={state?.win ? styles.win : styles.winHidden }>
+        You win!
+      </div>
     </div>
   )
 }

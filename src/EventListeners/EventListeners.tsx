@@ -20,6 +20,17 @@ function EventListeners({ children } : { children: Array<React.ReactElement> }) 
         useMoveDown(state);
       }
 
+      let gameWin = false;
+
+      for(let i = 0; i < 4; i++){
+        for(let j = 0; j < 4; j++){
+          if(state?.gridState[i][j] === 2048)
+            gameWin = true;
+        }
+      }
+
+      if(gameWin)
+        state?.setWin(true);
       state?.setGridState([...state?.gridState]);
     };
 

@@ -14,6 +14,8 @@ function App() {
     [0, 0, 0, 0]
   ]);
   const [score, setScore] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
+  const [win, setWin] = useState(false);
 
   useEffect(() => {
     addRandomPoint(gridState);
@@ -24,7 +26,7 @@ function App() {
 
   return (
     <div className="container">
-      <StateContext.Provider value={{ gridState, setGridState, score, setScore}}>
+      <StateContext.Provider value={{ gridState, setGridState, score, setScore, gameOver, setGameOver, win, setWin }}>
         <EventListeners>
           <Grid/>
           <Description/>
