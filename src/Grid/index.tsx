@@ -18,8 +18,11 @@ function Grid() {
           </Tile>
         </Cell>))
       }
-      <div className={state?.win ? styles.win : styles.winHidden }>
+      <div className={state?.win ? styles.info : styles.hidden }>
         You win!
+      </div>
+      <div className={state?.gameOver ? styles.info : styles.hidden }>
+        Game Over!
       </div>
     </div>
   )

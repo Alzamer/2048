@@ -18,9 +18,12 @@ function EventListeners({ children } : { children: Array<React.ReactElement> }) 
         useMoveUp(state);
       } else if (event.key === 'ArrowDown' || event.key === 's') {
         useMoveDown(state);
+      } else {
+        return;
       }
 
       let gameWin = false;
+      let gameOver = true;
 
       for(let i = 0; i < 4; i++){
         for(let j = 0; j < 4; j++){
@@ -32,6 +35,41 @@ function EventListeners({ children } : { children: Array<React.ReactElement> }) 
       if(gameWin)
         state?.setWin(true);
       state?.setGridState([...state?.gridState]);
+    
+      loop:
+      for(let i = 0; i < 4; i++){
+        for(let j = 0; j < 4; j++){
+          if(state?.gridState[i][j] === 0){
+            gameOver = false;
+            break loop;
+          }
+
+          if(i === 0 && state?.gridState[i + 1][j] === state?.gridState[i][j]){
+            gameOver = false;
+            break loop;
+          } else if(i === 3 && state?.gridState[i - 1][j] === state?.gridState[i][j]){
+            gameOver = false;
+            break loop;
+          } else if(i != 0 && i != 3 && (state?.gridState[i - 1][j] === state?.gridState[i][j] || state?.gridState[i + 1][j] === state?.gridState[i][j])){
+            gameOver = false;
+            break loop;
+          }
+          
+          if(j === 0 && state?.gridState[i][j + 1] === state?.gridState[i][j]){
+            gameOver = false;
+            break loop;
+          } else if(j === 3 && state?.gridState[i][j - 1] === state?.gridState[i][j]){
+            gameOver = false;
+            break loop;
+          } else if(j != 0 && j != 3 && (state?.gridState[i][j - 1] === state?.gridState[i][j] || state?.gridState[i][j + 1] === state?.gridState[i][j])) {
+            gameOver = false;
+            break loop;
+          }
+        }
+      }
+
+      if(gameOver)
+        state?.setGameOver(true);
     };
 
     window.addEventListener('keydown', handleKeyPress);
